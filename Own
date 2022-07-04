@@ -1,0 +1,19 @@
+class Solution {
+    public int missingNumber(int[] nums) {
+        Arrays.sort(nums);
+        for(int i = 0; i <= nums.length; i++){
+            if( i < nums.length ){
+                if( i != nums[i])
+                    return i;
+            }
+            else if( i == nums.length)
+                return nums.length;                
+        }        
+        return 0;
+    }    
+}
+
+/*
+2 solutions:
+1) Find sum of all elements of nums and subtract it from sum of elements from 0 to nums.length
+2) Take 2 elements a, b. Then a XOR i and b XOR nums[i] where 0 < i < nums.length. Then a XOR b.
